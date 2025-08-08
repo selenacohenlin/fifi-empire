@@ -9,57 +9,35 @@
    <link rel="stylesheet" type="text/css" href="game.css">    
 </head>
 <body class="antialiased">
+    
     <div class="game-container bg-gray-800 p-6 md:p-8 rounded-xl shadow-2xl border border-gray-700">
-        <h1 class="text-4xl md:text-5xl font-extrabold text-center mb-6 text-indigo-400">Clicker Empire</h1>
-
-        <!-- Main Clicker Section -->
-        <div class="bg-gray-700 p-5 rounded-lg shadow-inner mb-6 text-center">
-            <p class="text-2xl md:text-3xl font-semibold mb-3">Clicks: <span id="clicksDisplay" class="text-green-400">0</span></p>
-            <button id="clickButton" class="bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-200 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75">
-                Click Me!
-            </button>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-center mb-6 text-yellow-300">Fifi Emipire</h1>
+        <div class="tab-bar" style="width:100%; display: flex;">
+            <button id="jobs-tab" class="bg-gray-600 hover:bg-gray-500 active:bg-gray-600 rounded-lg" style="width:15%"><h1 class="text-3xl text-center font-semibold text-indigo-0">Jobs</h1></button>
+            <button id="evolutions-tab" class="bg-gray-600 hover:bg-gray-500 active:bg-gray-600 rounded-lg" style="width:30%"><h1 class="text-3xl text-center font-semibold text-indigo-0">Evolutions</h1></button>
+            <button id="others-tab" class="bg-gray-600 hover:bg-gray-500 active:bg-gray-600 rounded-lg" style="width:20%"><h1 class="text-3xl text-center font-semibold text-indigo-0">Other</h1></button>
         </div>
-
-        <!-- Upgrades Section -->
-        <div class="bg-gray-700 p-5 rounded-lg shadow-inner mb-6">
-            <h2 class="text-2xl font-bold mb-4 text-center text-blue-300">Upgrades</h2>
-
-            <!-- Auto-Clicker Upgrade -->
-            <div class="flex flex-col md:flex-row items-center justify-between bg-gray-600 p-4 rounded-lg mb-3 shadow-md">
-                <div class="mb-2 md:mb-0 text-center md:text-left">
-                    <p class="text-xl font-semibold">Auto-Clicker</p>
-                    <p class="text-sm text-gray-300">Generates 1 click per second.</p>
-                </div>
-                <div class="flex items-center">
-                    <p class="text-lg font-medium mr-4">Cost: <span id="autoClickerCostDisplay" class="text-yellow-300">10</span> Clicks</p>
-                    <button id="buyAutoClickerButton" class="bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white font-bold py-2 px-5 rounded-lg shadow-md transition duration-200 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                        Buy (<span id="autoClickerLevelDisplay">0</span>)
-                    </button>
-                </div>
+        <div class=" jobs-window bg-grey-500 rounded-xl flex flex-row">
+            <div class="bg-gray-700 p-5 rounded-lg shadow-inner mb-6 text-center">
+                <p class="text-2xl font-bold text-gray-200">Resources</p>
+                <p class="text-2xl md:text-3xl font-semibold mb-3">Ash: <span id="clicksDisplay" class="text-red-400">0</span></p>
             </div>
-
-            <!-- Super Clicker Upgrade -->
-            <div class="flex flex-col md:flex-row items-center justify-between bg-gray-600 p-4 rounded-lg shadow-md">
-                <div class="mb-2 md:mb-0 text-center md:text-left">
-                    <p class="text-xl font-semibold">Super Clicker</p>
-                    <p class="text-sm text-gray-300">Increases manual click power by 1.</p>
+            <div class="unemployed-container bg-gray-700 rounded-xl mx-1 p-3">
+                <p class="text-2xl font-semibold text-grey-200 text-center">Unemployed Fifis</p>
                 </div>
-                <div class="flex items-center">
-                    <p class="text-lg font-medium mr-4">Cost: <span id="superClickerCostDisplay" class="text-yellow-300">100</span> Clicks</p>
-                    <button id="buySuperClickerButton" class="bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white font-bold py-2 px-5 rounded-lg shadow-md transition duration-200 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                        Buy (<span id="superClickerLevelDisplay">0</span>)
-                    </button>
+        
+             <div class="jobs-container bg-gray-700 rounded-xl p-2">
+                <p class="text-3xl font-semibold text-gray-200 text-center">Jobs</p>
+                <div class="fire-starter-container text-2xl text-white text-center">Fire Starter
+                   <button id="plus-button" class="text-3xl text-white text-center bg-gray-400 rounded-full hover:bg-gray-500 px-1">+</button>
+                    <button id="minus-button" class="text-3xl text-white text-center bg-gray-400 rounded-full hover:bg-gray-500 px-2">–</button>
                 </div>
             </div>
         </div>
-
-        <!-- Game Info/Status Section -->
-        <div class="bg-gray-700 p-5 rounded-lg shadow-inner text-center">
-            <h2 class="text-2xl font-bold mb-4 text-center text-purple-300">Game Info</h2>
-            <p class="text-lg mb-2">Clicks per second (CPS): <span id="cpsDisplay" class="font-bold text-teal-300">0</span></p>
-            <p class="text-lg">Click Power: <span id="clickPowerDisplay" class="font-bold text-orange-300">1</span></p>
+        <div class="evolutions-window bg-gray-500 rounded xl display-none">
         </div>
-
+    </div>
+        
         <!-- Message Box (hidden by default) -->
         <div id="messageBox" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
             <div class="bg-gray-800 p-6 rounded-lg shadow-xl text-center border border-gray-700">
